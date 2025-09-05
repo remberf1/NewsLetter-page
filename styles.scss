@@ -102,7 +102,7 @@ main{
     font-family: $font-stack;
     color: $dark-grayish-blue;
     margin: 1rem 0;
-    max-width: 21rem;
+    max-width: 35ch;
     line-height: 1.5rem;
   }
   
@@ -194,7 +194,7 @@ main{
       height: 150px;
       object-fit: cover;
     }
-    header{
+    h1{
       font-size: 2.5rem;
       font-weight: $font-bold;
       font-family: $font-stack;
@@ -223,63 +223,108 @@ main{
 }
 
 @media screen and (min-width: 768px) {
-  .top-container{
+  
+   .top-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2rem;
+    align-items: stretch; // important for equal height
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+  }
+ 
+.image-wrapper {
+  width: 100%;
+  height: 280px;
+
+  picture, img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // ✅ changed from contain to cover
+  }
+}
+  .row-container {
     display: flex;
     flex-direction: row;
     gap: 2rem;
-    flex: 1;
-  }
-  .hero-image{
-    height: 50%;
-    width: 98%;
-  }
-  .news-container{
-    margin-top: 0;
-    header,h2{
-      min-width: 20rem;
+    align-items: flex-end; // align items to the top
+    justify-content: space-between;
+    
+    h1{
+      font-size: 4.5rem;
+      max-width: 8ch;
+      line-height: 4rem;
     }
+
+    button{
+  margin-bottom: 0;
+}
+
   }
-  .row-container{
-    display: flex;
-    flex-direction: row;
-    gap: 3.5rem;
-    header{
-      font-size: 3.25rem;
-      line-height: 3.5rem;
-      min-width: 18rem;
-    }
-    p{
-      min-width: 21rem;
-    }
+  .row-container > div:last-child {
+    margin-right: 5rem;
+
   }
+
+
+
+
+  .news-container {
+    height: 100%; // so it aligns with .hero-container
+    margin: 0;
+  }
+}
+
   .card-container{
     flex-direction: row;
   }
  
-   .sidebar {
-    z-index: 0;
-    display: block ;
-    height: auto;
-    width: auto;
-    padding: 0;
-    box-shadow: none;
-    position: static;
-  }
+  .sidebar {
+  display: flex;
+  position: static;
+  height: auto;
+  width: auto;
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
 
-  .sidebar ul {
+  ul {
     display: flex;
     gap: 2rem;
+    margin: 0;
+    padding: 0;
+    align-items: center; // aligns li vertically with logo
   }
 
-  .sidebar li {
-    margin: 0;
+  li {
+    list-style: none;
+    font-size: 0.875rem;
+    font-family: $font-stack;
+    font-weight: $font-medium;
+    color: $dark-grayish-blue;
+    padding-right: 1rem;
+    margin-right: 0.85rem;
+
+    &:hover {
+      color: $soft-red;
+      cursor: pointer;
+    }
+   &:last-child {
+      padding-right: 0;
+      margin-right: 0;
+    }
   }
+}
 
   .open-sidebar,
   .close-sidebar {
     display: none;
 }
-}
+
 
 @media screen and (max-width: 768px) and (min-width: 700px) {
   .card-container {
