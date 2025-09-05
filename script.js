@@ -13,3 +13,13 @@ closeBtn.addEventListener('click', () => {
   closeBtn.hidden = true;
   openBtn.hidden = false;
 });
+
+function handleKey(e, action) {
+  if (e.key === "Enter" || e.key === " ") {
+    e.preventDefault();
+    action();
+  }
+}
+
+openBtn.addEventListener("keydown", (e) => handleKey(e, openSidebar));
+closeBtn.addEventListener("keydown", (e) => handleKey(e, closeSidebar));

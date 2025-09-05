@@ -12,7 +12,7 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.5rem;
+  padding: 2rem 1.5rem;
 }
 
 .open-sidebar {
@@ -25,8 +25,7 @@ html, body {
   right: 0;
   height: 100%;
   width: 100%;
-  background: #333;
-  color: white;
+  background: hsl(36, 100%, 99%);
   padding: 2rem;
   z-index: 20;
   max-width: 60%;
@@ -35,15 +34,235 @@ html, body {
 .sidebar.active {
   transform: translateX(0);
 }
-.sidebar li {
-  list-style: none;
+.sidebar ul {
+  position: relative;
   padding: 0;
   margin: 0;
+  transform: translateY(50%);
+  cursor: pointer;
+}
+.sidebar li {
+  list-style: none;
+  font-weight: 400;
+  font-family: "Inter", Arial, sans-serif;
+  color: hsl(240, 100%, 5%);
+  padding: 1rem;
+  margin: 0;
+  font-size: large;
+}
+.sidebar li:hover {
+  color: hsl(5, 85%, 63%);
 }
 
 .close-sidebar {
   z-index: 30;
   cursor: pointer;
+}
+
+main {
+  padding: 1rem 1rem;
+}
+
+.hero-image {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.hero-container h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  font-family: "Inter", Arial, sans-serif;
+  color: hsl(240, 100%, 5%);
+  margin: 1rem 0;
+  max-width: 18rem;
+}
+.hero-container p {
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Inter", Arial, sans-serif;
+  color: hsl(236, 13%, 42%);
+  margin: 1rem 0;
+  max-width: 21rem;
+  line-height: 1.5rem;
+}
+.hero-container button {
+  background: hsl(5, 85%, 63%);
+  border: none;
+  color: hsl(240, 100%, 5%);
+  font-size: 15px;
+  font-weight: 700;
+  font-family: "Inter", Arial, sans-serif;
+  letter-spacing: 0.2rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin: 1rem 0;
+}
+.hero-container button:hover {
+  background: hsl(240, 100%, 5%);
+  color: hsl(36, 100%, 99%);
+}
+
+.news-container {
+  background-color: hsl(240, 100%, 5%);
+  padding: 1rem;
+  margin: 2rem 0;
+}
+.news-container header {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: "Inter", Arial, sans-serif;
+  color: hsl(35, 77%, 62%);
+  margin: 1rem 1rem;
+  margin-bottom: 1.5rem;
+}
+.news-container h2 {
+  color: hsl(36, 100%, 99%);
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: "Inter", Arial, sans-serif;
+  margin: 0 1rem;
+  max-width: 18rem;
+  line-height: 1.5rem;
+}
+.news-container h2:hover {
+  color: hsl(35, 77%, 62%);
+  cursor: pointer;
+}
+.news-container p {
+  color: hsl(36, 100%, 99%);
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Inter", Arial, sans-serif;
+  margin: 0.5rem 1rem;
+  max-width: 19rem;
+  line-height: 1.5rem;
+}
+
+.news-container article:nth-of-type(n+2)::before {
+  content: "";
+  display: block;
+  height: 0.25px;
+  background: hsl(233, 8%, 79%);
+  margin: 1.5rem 1rem;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 2rem 0;
+  justify-content: flex-start;
+}
+.card-container article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-container .card {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+.card-container .card img {
+  position: relative;
+  top: 0.5rem;
+  width: 120px;
+  height: 150px;
+  object-fit: cover;
+}
+.card-container .card header {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: "Inter", Arial, sans-serif;
+  color: hsl(5, 85%, 63%);
+  margin: 1rem 0;
+}
+.card-container .card h2 {
+  color: hsl(240, 100%, 5%);
+  font-size: 1.25rem;
+  font-weight: 800;
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.5rem;
+}
+.card-container .card h2:hover {
+  color: hsl(5, 85%, 63%);
+  cursor: pointer;
+}
+.card-container .card p {
+  color: hsl(236, 13%, 42%);
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .top-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    flex: 1;
+  }
+  .hero-image {
+    height: 50%;
+    width: 98%;
+  }
+  .news-container {
+    margin-top: 0;
+  }
+  .news-container header, .news-container h2 {
+    min-width: 20rem;
+  }
+  .row-container {
+    display: flex;
+    flex-direction: row;
+    gap: 3.5rem;
+  }
+  .row-container header {
+    font-size: 3.25rem;
+    line-height: 3.5rem;
+    min-width: 18rem;
+  }
+  .row-container p {
+    min-width: 21rem;
+  }
+  .card-container {
+    flex-direction: row;
+  }
+  .sidebar {
+    z-index: 0;
+    display: block;
+    height: auto;
+    width: auto;
+    padding: 0;
+    box-shadow: none;
+    position: static;
+  }
+  .sidebar ul {
+    display: flex;
+    gap: 2rem;
+  }
+  .sidebar li {
+    margin: 0;
+  }
+  .open-sidebar,
+  .close-sidebar {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 700px) {
+  .card-container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .card {
+    flex: 0 1 calc(48% - 1rem);
+    min-width: 300px;
+    margin-bottom: 1rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
