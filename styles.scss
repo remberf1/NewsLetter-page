@@ -1,4 +1,5 @@
-$font-stack:'Inter',Arial, sans-serif;
+$font-stack:'Inter', Arial, sans-serif;
+
 // Primary Colors
 $soft-orange: hsl(35, 77%, 62%);
 $soft-red: hsl(5, 85%, 63%);
@@ -18,49 +19,56 @@ $font-extra-bold: 800;
 $font-size: 15px;
 
 html, body {
-    margin: 0;
-    width: 100%;
-    height: 100%;
+  margin: 0;
+  width: 100%;
+  height: 100%;
 }
 *, *::before, *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.nav-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 1.5rem;
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 1.5rem;
 }
-.open-sidebar{
+
+.open-sidebar {
   cursor: pointer;
 }
 
+.close-sidebar {
+  z-index: 30;
+  cursor: pointer;
+}
+
+/* ✅ MOBILE SIDEBAR STYLES (Base) */
 .sidebar {
   position: fixed;
   top: 0;
-  right:0 ;
+  right: 0;
   height: 100%;
   width: 100%;
+  max-width: 60%;
   background: $off-white;
-  
   padding: 2rem;
   z-index: 20;
-  max-width: 60%;
- 
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
 
   &.active {
-    transform: translateX(0);
+    transform: translateX(0); // Slide in
   }
-  ul{
-    position: relative;
+
+  ul {
     padding: 0;
     margin: 0;
     transform: translateY(50%);
     cursor: pointer;
   }
-  transition: transform 0.5s;
-  li{
+
+  li {
     list-style: none;
     font-weight: $font-medium;
     font-family: $font-stack;
@@ -69,26 +77,24 @@ html, body {
     margin: 0;
     font-size: large;
 
-  }
-  li:hover{
-    color: $soft-red;
+    &:hover {
+      color: $soft-red;
+    }
   }
 }
-.close-sidebar{
-  z-index: 30;
-  cursor: pointer;
-}
-main{
+
+main {
   padding: 1rem 1rem;
 }
-.hero-image{
+
+.hero-image {
   width: 100%;
   object-fit: cover;
   height: 100%;
 }
 
-.hero-container{
-  h1{
+.hero-container {
+  h1 {
     font-size: 2.5rem;
     font-weight: $font-extra-bold;
     font-family: $font-stack;
@@ -96,7 +102,8 @@ main{
     margin: 1rem 0;
     max-width: 18rem;
   }
-  p{
+
+  p {
     font-size: $font-size;
     font-weight: $font-medium;
     font-family: $font-stack;
@@ -105,8 +112,8 @@ main{
     max-width: 35ch;
     line-height: 1.5rem;
   }
-  
-  button{
+
+  button {
     background: $soft-red;
     border: none;
     color: $very-dark-blue;
@@ -118,27 +125,28 @@ main{
     cursor: pointer;
     text-transform: uppercase;
     margin: 1rem 0;
-  }
-  button:hover{
-    background: $very-dark-blue;
-    color:$off-white;
+
+    &:hover {
+      background: $very-dark-blue;
+      color: $off-white;
+    }
   }
 }
 
-.news-container{
+.news-container {
   background-color: $very-dark-blue;
   padding: 1rem;
   margin: 2rem 0;
 
-  header{
+  header {
     font-size: 2.5rem;
     font-weight: $font-bold;
     font-family: $font-stack;
     color: $soft-orange;
-    margin: 1rem 1rem;
-    margin-bottom: 1.5rem;
+    margin: 1rem 1rem 1.5rem;
   }
-  h2{
+
+  h2 {
     color: $off-white;
     font-size: 1.25rem;
     font-weight: $font-bold;
@@ -146,13 +154,14 @@ main{
     margin: 0 1rem;
     max-width: 18rem;
     line-height: 1.5rem;
-  }
-  h2:hover{
-    color: $soft-orange;
-    cursor: pointer;
 
+    &:hover {
+      color: $soft-orange;
+      cursor: pointer;
+    }
   }
-  p{
+
+  p {
     color: $grayish-blue;
     font-size: $font-size;
     font-weight: $font-medium;
@@ -162,6 +171,7 @@ main{
     line-height: 1.5rem;
   }
 }
+
 .news-container article:nth-of-type(n+2)::before {
   content: '';
   display: block;
@@ -170,49 +180,54 @@ main{
   margin: 1.5rem 1rem;
 }
 
-.card-container{
+.card-container {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
   margin: 2rem 0;
-   justify-content: flex-start;
+  justify-content: flex-start;
 
-  article{
+  article {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .card{
+  .card {
     display: flex;
     flex-direction: row;
     gap: 2rem;
-    img{
+
+    img {
       position: relative;
-      top:0.5rem; ;
+      top: 0.5rem;
       width: 120px;
       height: 150px;
       object-fit: cover;
     }
-    h1{
+
+    h1 {
       font-size: 2.5rem;
       font-weight: $font-bold;
       font-family: $font-stack;
       color: $soft-red;
       margin: 1rem 0;
     }
-    h2{
+
+    h2 {
       color: $very-dark-blue;
       font-size: 1.25rem;
       font-weight: $font-extra-bold;
       font-family: $font-stack;
       line-height: 1.5rem;
+
+      &:hover {
+        color: $soft-red;
+        cursor: pointer;
+      }
     }
-    h2:hover{
-      color: $soft-red;
-      cursor: pointer;
-    }
-    p{
+
+    p {
       color: $dark-grayish-blue;
       font-size: $font-size;
       font-weight: $font-medium;
@@ -223,113 +238,116 @@ main{
 }
 
 @media screen and (min-width: 768px) {
-  
-   .top-container {
+  .top-container {
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: 2rem;
-    align-items: stretch; // important for equal height
+    align-items: stretch;
   }
 
   .hero-container {
     display: flex;
     flex-direction: column;
   }
- 
-.image-wrapper {
-  width: 100%;
-  height: 280px;
 
-  picture, img {
-    display: block;
+  .image-wrapper {
     width: 100%;
-    height: 100%;
-    object-fit: cover; // ✅ changed from contain to cover
+    height: 280px;
+
+    picture,
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
-}
+
   .row-container {
     display: flex;
     flex-direction: row;
     gap: 2rem;
-    align-items: flex-end; // align items to the top
+    align-items: flex-end;
     justify-content: space-between;
-    
-    h1{
+
+    h1 {
       font-size: 4.5rem;
       max-width: 8ch;
       line-height: 4rem;
     }
 
-    button{
-  margin-bottom: 0;
-}
-
+    button {
+      margin-bottom: 0;
+    }
   }
+
   .row-container > div:last-child {
     margin-right: 5rem;
-
   }
 
-
-
-
   .news-container {
-    height: 100%; // so it aligns with .hero-container
+    height: 100%;
     margin: 0;
 
-    p{
+    p {
       min-width: 33ch;
     }
   }
-}
 
-  .card-container{
+  .card-container {
     flex-direction: row;
   }
- 
+
+  /* ✅ DESKTOP NAV BAR STYLE */
   .sidebar {
-  display: flex;
-  position: static;
-  height: auto;
-  width: auto;
-  padding: 0;
-  margin: 0;
-  box-shadow: none;
-
-  ul {
     display: flex;
-    gap: 2rem;
-    margin: 0;
+    position: static;
+    height: auto;
+    width: auto;
+    max-width: none;
     padding: 0;
-    align-items: center; // aligns li vertically with logo
-  }
+    margin: 0;
+    transform: none !important;
+    background: none;
+    box-shadow: none;
 
-  li {
-    list-style: none;
-    font-size: 0.875rem;
-    font-family: $font-stack;
-    font-weight: $font-medium;
-    color: $dark-grayish-blue;
-    padding-right: 1rem;
-    margin-right: 0.85rem;
-
-    &:hover {
-      color: $soft-red;
-      cursor: pointer;
+    ul {
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+      transform: none;
     }
-   &:last-child {
-      padding-right: 0;
-      margin-right: 0;
+
+    li {
+      list-style: none;
+      font-size: 0.875rem;
+      font-family: $font-stack;
+      font-weight: $font-medium;
+      color: $dark-grayish-blue;
+      padding-right: 1rem;
+      margin-right: 0.85rem;
+
+      &:hover {
+        color: $soft-red;
+        cursor: pointer;
+      }
+
+      &:last-child {
+        padding-right: 0;
+        margin-right: 0;
+      }
     }
   }
-}
 
   .open-sidebar,
   .close-sidebar {
-    display: none;
+    display: none !important;
+  }
 }
 
-
+/* Optional wrap fix for tablet */
 @media screen and (max-width: 768px) and (min-width: 700px) {
   .card-container {
     flex-wrap: wrap;

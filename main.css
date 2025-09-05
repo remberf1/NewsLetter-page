@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html, body {
   margin: 0;
   width: 100%;
@@ -19,23 +20,29 @@ html, body {
   cursor: pointer;
 }
 
+.close-sidebar {
+  z-index: 30;
+  cursor: pointer;
+}
+
+/* ✅ MOBILE SIDEBAR STYLES (Base) */
 .sidebar {
   position: fixed;
   top: 0;
   right: 0;
   height: 100%;
   width: 100%;
+  max-width: 60%;
   background: hsl(36, 100%, 99%);
   padding: 2rem;
   z-index: 20;
-  max-width: 60%;
-  transition: transform 0.5s;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
 }
 .sidebar.active {
   transform: translateX(0);
 }
 .sidebar ul {
-  position: relative;
   padding: 0;
   margin: 0;
   transform: translateY(50%);
@@ -52,11 +59,6 @@ html, body {
 }
 .sidebar li:hover {
   color: hsl(5, 85%, 63%);
-}
-
-.close-sidebar {
-  z-index: 30;
-  cursor: pointer;
 }
 
 main {
@@ -114,8 +116,7 @@ main {
   font-weight: 700;
   font-family: "Inter", Arial, sans-serif;
   color: hsl(35, 77%, 62%);
-  margin: 1rem 1rem;
-  margin-bottom: 1.5rem;
+  margin: 1rem 1rem 1.5rem;
 }
 .news-container h2 {
   color: hsl(36, 100%, 99%);
@@ -213,7 +214,8 @@ main {
     width: 100%;
     height: 280px;
   }
-  .image-wrapper picture, .image-wrapper img {
+  .image-wrapper picture,
+  .image-wrapper img {
     display: block;
     width: 100%;
     height: 100%;
@@ -244,50 +246,53 @@ main {
   .news-container p {
     min-width: 33ch;
   }
+  .card-container {
+    flex-direction: row;
+  }
+  /* ✅ DESKTOP NAV BAR STYLE */
+  .sidebar {
+    display: flex;
+    position: static;
+    height: auto;
+    width: auto;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+    transform: none !important;
+    background: none;
+    box-shadow: none;
+  }
+  .sidebar ul {
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    transform: none;
+  }
+  .sidebar li {
+    list-style: none;
+    font-size: 0.875rem;
+    font-family: "Inter", Arial, sans-serif;
+    font-weight: 400;
+    color: hsl(236, 13%, 42%);
+    padding-right: 1rem;
+    margin-right: 0.85rem;
+  }
+  .sidebar li:hover {
+    color: hsl(5, 85%, 63%);
+    cursor: pointer;
+  }
+  .sidebar li:last-child {
+    padding-right: 0;
+    margin-right: 0;
+  }
+  .open-sidebar,
+  .close-sidebar {
+    display: none !important;
+  }
 }
-.card-container {
-  flex-direction: row;
-}
-
-.sidebar {
-  display: flex;
-  position: static;
-  height: auto;
-  width: auto;
-  padding: 0;
-  margin: 0;
-  box-shadow: none;
-}
-.sidebar ul {
-  display: flex;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
-  align-items: center;
-}
-.sidebar li {
-  list-style: none;
-  font-size: 0.875rem;
-  font-family: "Inter", Arial, sans-serif;
-  font-weight: 400;
-  color: hsl(236, 13%, 42%);
-  padding-right: 1rem;
-  margin-right: 0.85rem;
-}
-.sidebar li:hover {
-  color: hsl(5, 85%, 63%);
-  cursor: pointer;
-}
-.sidebar li:last-child {
-  padding-right: 0;
-  margin-right: 0;
-}
-
-.open-sidebar,
-.close-sidebar {
-  display: none;
-}
-
+/* Optional wrap fix for tablet */
 @media screen and (max-width: 768px) and (min-width: 700px) {
   .card-container {
     flex-wrap: wrap;
