@@ -1,4 +1,7 @@
-$font-stack:'Inter', Arial, sans-serif;
+// ============================
+// Variables
+// ============================
+$font-stack: 'Inter', Arial, sans-serif;
 
 // Primary Colors
 $soft-orange: hsl(35, 77%, 62%);
@@ -10,23 +13,42 @@ $grayish-blue: hsl(233, 8%, 79%);
 $dark-grayish-blue: hsl(236, 13%, 42%);
 $very-dark-blue: hsl(240, 100%, 5%);
 
-// Font Weights
+// Font
+$font-size: 15px;
 $font-medium: 400;
 $font-bold: 700;
 $font-extra-bold: 800;
 
-// Font Sizes
-$font-size: 15px;
-
+// ============================
+// Reset & Base
+// ============================
 html, body {
   margin: 0;
   width: 100%;
   height: 100%;
 }
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
+body {
+  background-color: $off-white;
+  font-family: $font-stack;
+}
+
+// ============================
+// Container
+// ============================
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+// ============================
+// Nav
+// ============================
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -34,6 +56,9 @@ html, body {
   padding: 2rem 1.5rem;
 }
 
+// ============================
+// Mobile Sidebar Navigation
+// ============================
 .open-sidebar {
   cursor: pointer;
 }
@@ -46,9 +71,9 @@ html, body {
   right: 2rem;
 }
 
-/* ✅ MOBILE SIDEBAR STYLES (Base) */
+// Sidebar base (mobile)
 .sidebar {
-   display: block; 
+  display: block;
   position: fixed;
   top: 0;
   right: 0;
@@ -65,23 +90,12 @@ html, body {
     transform: translateX(0); // Slide in
   }
 
-  ul {
-    position: relative;
-    padding: 0;
-    margin: 0;
-    transform: translateY(100%);
-    cursor: pointer;
-  }
-
   li {
-    position: relative;
-    top: 4rem;
     list-style: none;
     font-weight: $font-medium;
     font-family: $font-stack;
     color: $very-dark-blue;
     padding: 1rem;
-    margin: 0;
     font-size: large;
 
     &:hover {
@@ -89,6 +103,12 @@ html, body {
     }
   }
 }
+
+
+.desktop-menu {
+  display: none;
+}
+
 
 main {
   padding: 1rem 1rem;
@@ -104,7 +124,6 @@ main {
   h1 {
     font-size: 2.5rem;
     font-weight: $font-extra-bold;
-    font-family: $font-stack;
     color: $very-dark-blue;
     margin: 1rem 0;
     max-width: 18rem;
@@ -113,7 +132,6 @@ main {
   p {
     font-size: $font-size;
     font-weight: $font-medium;
-    font-family: $font-stack;
     color: $dark-grayish-blue;
     margin: 1rem 0;
     max-width: 35ch;
@@ -126,7 +144,6 @@ main {
     color: $very-dark-blue;
     font-size: $font-size;
     font-weight: $font-bold;
-    font-family: $font-stack;
     letter-spacing: 0.2rem;
     padding: 1rem 2rem;
     cursor: pointer;
@@ -140,6 +157,9 @@ main {
   }
 }
 
+// ============================
+// News Section
+// ============================
 .news-container {
   background-color: $very-dark-blue;
   padding: 1rem;
@@ -148,7 +168,6 @@ main {
   header {
     font-size: 2.5rem;
     font-weight: $font-bold;
-    font-family: $font-stack;
     color: $soft-orange;
     margin: 1rem 1rem 1.5rem;
   }
@@ -157,7 +176,6 @@ main {
     color: $off-white;
     font-size: 1.25rem;
     font-weight: $font-bold;
-    font-family: $font-stack;
     margin: 0 1rem;
     max-width: 18rem;
     line-height: 1.5rem;
@@ -172,7 +190,6 @@ main {
     color: $grayish-blue;
     font-size: $font-size;
     font-weight: $font-medium;
-    font-family: $font-stack;
     margin: 0.5rem 1rem;
     max-width: 19rem;
     line-height: 1.5rem;
@@ -187,12 +204,14 @@ main {
   margin: 1.5rem 1rem;
 }
 
+// ============================
+// Cards
+// ============================
 .card-container {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
   margin: 2rem 0;
-  justify-content: flex-start;
 
   article {
     display: flex;
@@ -206,17 +225,14 @@ main {
     gap: 2rem;
 
     img {
-      position: relative;
-      top: 0.5rem;
       width: 120px;
       height: 150px;
       object-fit: cover;
     }
 
-    h1 {
+    header {
       font-size: 2.5rem;
       font-weight: $font-bold;
-      font-family: $font-stack;
       color: $soft-red;
       margin: 1rem 0;
     }
@@ -225,7 +241,6 @@ main {
       color: $very-dark-blue;
       font-size: 1.25rem;
       font-weight: $font-extra-bold;
-      font-family: $font-stack;
       line-height: 1.5rem;
 
       &:hover {
@@ -238,21 +253,29 @@ main {
       color: $dark-grayish-blue;
       font-size: $font-size;
       font-weight: $font-medium;
-      font-family: $font-stack;
       line-height: 1.5rem;
     }
   }
 }
 
+// ============================
+// Media Queries (Desktop)
+// ============================
 @media screen and (min-width: 768px) {
   .top-container {
-    display: grid;
-    grid-template-columns: 3fr 1fr;
+    display: flex;
     gap: 2rem;
     align-items: stretch;
   }
 
   .hero-container {
+    display: flex;
+    flex-direction: column;
+    flex: 2; // <-- Make hero-container take twice the space
+  }
+
+  .news-container {
+    flex: 1; // <-- Smaller space for news-container
     display: flex;
     flex-direction: column;
   }
@@ -274,13 +297,12 @@ main {
     display: flex;
     flex-direction: row;
     gap: 2rem;
-    align-items: flex-end;
     justify-content: space-between;
 
     h1 {
-      font-size: 4.5rem;
+      font-size: 3.5rem;
       max-width: 8ch;
-      line-height: 4rem;
+      line-height: 3.5rem;
     }
 
     button {
@@ -289,11 +311,21 @@ main {
   }
 
   .row-container > div:last-child {
-    margin-right: 5rem;
+    margin-right: 2rem;
+    display: flex;    
+    flex-direction: column;
+
+    p {
+
+      margin-bottom: auto; // pushes the button down
+    }
+    button {
+    align-self: flex-start;    // keep the button’s natural size, no stretching
+    width: auto;               // make sure button doesn't stretch full width
+  }
   }
 
   .news-container {
-    height: 100%;
     margin: 0;
 
     p {
@@ -305,57 +337,39 @@ main {
     flex-direction: row;
   }
 
-  /* ✅ DESKTOP NAV BAR STYLE */
-  .sidebar {
+  // Show desktop menu, hide mobile sidebar/buttons
+  .desktop-menu {
     display: flex;
-    flex-direction: row;
-    position: static;
-    height: auto;
-    width: auto;
-    max-width: none;
-    padding: 0;
-    margin: 0;
-    transform: none !important;
-    background: none;
-    box-shadow: none;
-
-    ul {
-      display: flex;
-      gap: 2rem;
-      margin: 0;
-      padding: 0;
-      align-items: center;
-      transform: none;
-    }
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
 
     li {
-      list-style: none;
       font-size: 0.875rem;
-      font-family: $font-stack;
       font-weight: $font-medium;
       color: $dark-grayish-blue;
-      padding-right: 1rem;
-      margin-right: 0.85rem;
+      padding-left: 1.75rem;
 
       &:hover {
         color: $soft-red;
         cursor: pointer;
       }
-
-      &:last-child {
-        padding-right: 0;
-        margin-right: 0;
-      }
+    }
+    & li:last-child {
+      margin-right: -0.25rem;
     }
   }
 
   .open-sidebar,
-  .close-sidebar {
+  .close-sidebar,
+  .mobile-menu {
     display: none !important;
   }
 }
 
-/* Optional wrap fix for tablet */
+// ============================
+// Tablet Wrapping Cards
+// ============================
 @media screen and (max-width: 768px) and (min-width: 700px) {
   .card-container {
     flex-wrap: wrap;

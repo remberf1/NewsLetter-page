@@ -13,39 +13,48 @@
 <body>
     <div class="container">
       <header>
-        <nav class="nav-container"role="navigation" aria-label="Main Navigation">
-          <img src="./assets/images/logo.svg" alt="News icon logo">
-          <!-- Open Button -->
-<img class="open-sidebar"
-     aria-label="Open menu"
-     tabindex="0"
-     src="./assets/images/icon-menu.svg"
-     alt="Open menu icon"
-     role="button"
-     aria-controls="sidebar"
-     aria-expanded="false">
+       <nav class="nav-container" role="navigation" aria-label="Main Navigation">
+  <img src="./assets/images/logo.svg" alt="News icon logo">
 
-<!-- Close Button -->
-<img class="close-sidebar"
-     aria-label="Close menu"
-     tabindex="0"
-     src="./assets/images/icon-menu-close.svg"
-     alt="Close menu icon"
-     role="button"
-     aria-controls="sidebar"
-     aria-expanded="true"
-     hidden>
+  <!-- Desktop Menu -->
+  <ul class="desktop-menu" aria-label="Desktop navigation menu">
+    <li>Home</li>
+    <li>New</li>
+    <li>Popular</li>
+    <li>Trending</li>
+    <li>Categories</li>
+  </ul>
 
-<!-- Sidebar Menu -->
-<ul id="sidebar" class="sidebar" aria-label="Mobile navigation menu">
-  <li>Home</li>
-  <li>New</li>
-  <li>Popular</li>
-  <li>Trending</li>
-  <li>Categories</li>
-</ul>
+  <!-- Open Button (Mobile only) -->
+  <img class="open-sidebar"
+       aria-label="Open menu"
+       tabindex="0"
+       src="./assets/images/icon-menu.svg"
+       alt="Open menu icon"
+       role="button"
+       aria-controls="sidebar"
+       aria-expanded="false">
 
-        </nav>
+  <!-- Close Button (Mobile only) -->
+  <img class="close-sidebar"
+       aria-label="Close menu"
+       tabindex="0"
+       src="./assets/images/icon-menu-close.svg"
+       alt="Close menu icon"
+       role="button"
+       aria-controls="sidebar"
+       aria-expanded="true"
+       hidden>
+
+  <!-- Sidebar Menu (Mobile only) -->
+  <ul id="sidebar" class="sidebar mobile-menu" aria-label="Mobile navigation menu">
+    <li>Home</li>
+    <li>New</li>
+    <li>Popular</li>
+    <li>Trending</li>
+    <li>Categories</li>
+  </ul>
+</nav>
       </header>
 
   
