@@ -153,7 +153,7 @@ main{
 
   }
   p{
-    color: $off-white;
+    color: $grayish-blue;
     font-size: $font-size;
     font-weight: $font-medium;
     font-family: $font-stack;
@@ -276,6 +276,10 @@ main{
   .news-container {
     height: 100%; // so it aligns with .hero-container
     margin: 0;
+
+    p{
+      min-width: 33ch;
+    }
   }
 }
 

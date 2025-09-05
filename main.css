@@ -131,7 +131,7 @@ main {
   cursor: pointer;
 }
 .news-container p {
-  color: hsl(36, 100%, 99%);
+  color: hsl(233, 8%, 79%);
   font-size: 15px;
   font-weight: 400;
   font-family: "Inter", Arial, sans-serif;
@@ -240,6 +240,9 @@ main {
   .news-container {
     height: 100%;
     margin: 0;
+  }
+  .news-container p {
+    min-width: 33ch;
   }
 }
 .card-container {
