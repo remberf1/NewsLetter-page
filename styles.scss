@@ -41,11 +41,17 @@ html, body {
 .close-sidebar {
   z-index: 30;
   cursor: pointer;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
 }
 
 /* ✅ MOBILE SIDEBAR STYLES (Base) */
 .sidebar {
+   display: flex; 
   position: fixed;
+  flex-direction: column;  // stack items vertically
+  justify-content: center; // vertical center
   top: 0;
   right: 0;
   height: 100%;
@@ -64,7 +70,7 @@ html, body {
   ul {
     padding: 0;
     margin: 0;
-    transform: translateY(50%);
+    transform: translateY(100%);
     cursor: pointer;
   }
 
@@ -301,6 +307,7 @@ main {
   /* ✅ DESKTOP NAV BAR STYLE */
   .sidebar {
     display: flex;
+    flex-direction: row;
     position: static;
     height: auto;
     width: auto;
