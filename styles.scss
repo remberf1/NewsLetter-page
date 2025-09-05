@@ -48,10 +48,8 @@ html, body {
 
 /* ✅ MOBILE SIDEBAR STYLES (Base) */
 .sidebar {
-   display: flex; 
+   display: block; 
   position: fixed;
-  flex-direction: column;  // stack items vertically
-  justify-content: center; // vertical center
   top: 0;
   right: 0;
   height: 100%;
@@ -68,6 +66,7 @@ html, body {
   }
 
   ul {
+    position: relative;
     padding: 0;
     margin: 0;
     transform: translateY(100%);
@@ -75,6 +74,8 @@ html, body {
   }
 
   li {
+    position: relative;
+    top: 4rem;
     list-style: none;
     font-weight: $font-medium;
     font-family: $font-stack;

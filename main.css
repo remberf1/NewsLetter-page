@@ -30,10 +30,8 @@ html, body {
 
 /* ✅ MOBILE SIDEBAR STYLES (Base) */
 .sidebar {
-  display: flex;
+  display: block;
   position: fixed;
-  flex-direction: column;
-  justify-content: center;
   top: 0;
   right: 0;
   height: 100%;
@@ -49,12 +47,15 @@ html, body {
   transform: translateX(0);
 }
 .sidebar ul {
+  position: relative;
   padding: 0;
   margin: 0;
   transform: translateY(100%);
   cursor: pointer;
 }
 .sidebar li {
+  position: relative;
+  top: 4rem;
   list-style: none;
   font-weight: 400;
   font-family: "Inter", Arial, sans-serif;
